@@ -1,7 +1,7 @@
-Python PauseFor
+Python Pause
 ===============
 
-Like using ``time.sleep``, but uses your computers current timestamp to track time.
+Suspend the execution of your program for a given amount of time. This works similarly to ``time.sleep``, but uses your computers timestamp to track time, versus a counter.
 
 For example, traditionally using ``time.sleep(3600)``, will pause the program for 60 minutes. If your computer goes into standby mode during minute one, and wakes up several hours later, your program will continue to sleep for 59 minutes.
 
@@ -23,6 +23,16 @@ This module checks the time at various intervals depending on how much time is l
 Examples:
 ---------
 
+Pause for half a second::
+
+    import pause
+    pause.milliseconds(500)
+
+Or::
+
+    import pause
+    pause.seconds(0.5)
+
 Pause for 1 minute::
 
     import pause
@@ -43,3 +53,32 @@ Pause using datetime::
     import pause, datetime
     dt = datetime.datetime(2013, 6, 2, 14, 36, 34, 383752)
     pause.until(dt)
+
+
+Functions
+---------
+
+* days(num)
+    Pause for this many days
+
+* hours(num)
+    Pause for this many hours
+
+* milliseconds(num)
+    Pause for this many milliseconds
+
+* minutes(num)
+    Pause for this many minutes
+
+* seconds(num)
+    Pause for this many seconds
+
+* time(num)
+    Same as PauseFor.seconds()
+
+* until(time)
+    Pause your program until a specific end time.
+    'time' is either a unix timestamp in seconds (i.e. seconds since Unix epoch) or datetime object
+
+* weeks(num)
+    Pause for this many weeks

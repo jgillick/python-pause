@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 
 """
+Suspend the execution of your program for a given amount of time.
+This works similarly to ``time.sleep``, but uses your computers timestamp to track time, versus a counter.
+"""
+
+"""
 The MIT License (MIT)
 
 Copyright (c) 2013 Jeremy Gillick
