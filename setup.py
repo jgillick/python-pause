@@ -2,14 +2,11 @@ from distutils.core import setup
 
 setup(
     name='pause',
-    version=open('pause/VERSION').read(),
+    version=0.1,
     license=open('LICENSE.txt').read(),
     author='Jeremy Gillick',
     author_email='none@none.com',
     packages=['pause', 'pause.tests'],
-    package_data={
-        'pause': ['VERSION']
-    },
     url='https://github.com/jgillick/python-pause',
     description='A timestamp-based sleep function for Python.',
     long_description=open('README.rst').read(),
