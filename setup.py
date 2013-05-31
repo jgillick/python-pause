@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='pause',
-    version=open('VERSION').read(),
+    version=open('pause/VERSION').read(),
     license=open('LICENSE.txt').read(),
     author='Jeremy Gillick',
     author_email='none@none.com',
