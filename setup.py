@@ -2,8 +2,8 @@ from distutils.core import setup
 
 setup(
     name='pause',
-    version=0.1,
-    license=open('LICENSE.txt').read(),
+    version='0.1.1',
+    license='LICENSE.txt',
     author='Jeremy Gillick',
     author_email='none@none.com',
     packages=['pause', 'pause.tests'],
@@ -11,6 +11,7 @@ setup(
     description='A timestamp-based sleep function for Python.',
     long_description=open('README.rst').read(),
     platforms='osx, posix, linux, windows',
+    keywords='sleep timestamp datetime',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'License :: OSI Approved :: MIT License',
@@ -20,6 +21,5 @@ setup(
         'Operating System :: MacOS :: MacOS X',
         'Operating System :: POSIX',
         'Environment :: Console'
-    ],
-    keywords='sleep timestamp datetime'
+    ]
 )
