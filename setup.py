@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='pause',
-    version='0.1.1',
+    version='0.1.2',
     license='LICENSE.txt',
     author='Jeremy Gillick',
     author_email='none@none.com',
