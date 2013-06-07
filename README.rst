@@ -47,7 +47,7 @@ Or::
 Pause for 1 minute::
 
     import pause
-    pause.minute(1)
+    pause.minutes(1)
 
 Pause for 2 days::
 
