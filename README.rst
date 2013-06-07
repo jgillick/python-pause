@@ -10,7 +10,7 @@ On the other hand, with ``pause.seconds(3600)``, if your computer goes into stan
 How it works
 ------------
 
-When you create a pause, it will determine what the end time of that pause should be. Then a loop will be started that will continually check the current time against the end time. When the current time is equal or greater than the end time, the method will return and your program can resume.
+When you create a pause, it will determine what the end time of that pause should be. Then a loop will be started that will continually check the current time against the end time. When the current time is equal or greater than the end time, the method will allow your program can resume.
 
 Precision
 ---------
