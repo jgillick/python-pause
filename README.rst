@@ -3,9 +3,9 @@ Python Pause
 
 Suspend the execution of your program for a given amount of time. This works similarly to ``time.sleep``, but uses your computers timestamp to track time, versus a counter.
 
-For example, traditionally using ``time.sleep(3600)``, will pause the program for 60 minutes. If your computer goes into standby mode during minute one, and wakes up several hours later, your program will continue to sleep for 59 minutes.
+For example, traditionally using ``time.sleep(3600)``, will pause the program for 60 minutes. If your computer goes into standby mode during minute one, and wakes up several hours later, your program will continue to be paused for 59 minutes.
 
-With ``pause.seconds(3600)``, if your computer goes into standby (sleep) mode for several hours, the program will continue immediately after the machine wakes back up since the minimum amount of time has passed since the pause was started.
+On the other hand, with ``pause.seconds(3600)``, if your computer goes into standby mode for several hours, the program will continue immediately after the machine wakes back up since the minimum amount of time has passed since the pause was started.
 
 How it works
 ------------
