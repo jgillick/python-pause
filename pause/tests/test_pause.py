@@ -129,7 +129,5 @@ class TestPauseFor(unittest.TestCase):
         diff = int(end - start)
         self.assertEqual(diff, 6)
 
-
-
 if __name__ == '__main__':
     unittest.main()
