@@ -9,7 +9,7 @@ from datetime import timedelta
 import time
 
 sys.path.insert(0, '..')
-import pause
+import __init__ as pause
 
 class TestPauseFor(unittest.TestCase):
     """ Test the delay function of PauseFor """

@@ -43,7 +43,7 @@ def until(time):
 
     # Convert datetime to unix timestamp
     if type(time) is datetime:
-        end = float(time.strftime('%s.%f'))
+        end = end.timestamp()
 
     # Type check
     if type(end) not in [int, float]:
