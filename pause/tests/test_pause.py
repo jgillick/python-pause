@@ -17,22 +17,6 @@ class TestPauseFor(unittest.TestCase):
     def setUp(self):
         pass
 
-    def test_milliseconds(self):
-        """ test_milliseconds
-        Test 500 millisecond delay
-        """
-        start = time.time()
-        pause.milliseconds(500)
-        end = time.time()
-        diff = end - start
-        target = abs(diff - 0.5)
-
-        #
-        # True if it's within 0.1 of the target time
-        #
-        valid = (target <= 0.1)
-        self.assertTrue(valid)
-
     def test_past(self):
         """ test_past
         Test a time that has already passed
@@ -49,6 +33,23 @@ class TestPauseFor(unittest.TestCase):
         pause.until(time.time() - 10)
         end = time.time()
         self.assertEqual(int(end - start), 0)
+
+    def test_milliseconds(self):
+        """ test_milliseconds
+        Test 500 millisecond delay
+        """
+        start = time.time()
+        pause.milliseconds(500)
+        end = time.time()
+        diff = end - start
+        target = abs(diff - 0.5)
+
+        #
+        # True if it's within 0.1 of the target time
+        #
+        print 'Milliseconds came within {0} seconds of 0.5'.format(target)
+        valid = (target <= 0.1)
+        self.assertTrue(valid)
 
 
 
@@ -101,19 +102,6 @@ class TestPauseFor(unittest.TestCase):
         diff = int(end - now)
         self.assertEqual(diff, 2)
 
-    def test_timestamp(self):
-        """ test_timestamp
-        Test 6 seconds, with a unix timestamp
-        """
-        toTime = time.time() + 6
-        start = time.time()
-        pause.until(toTime)
-
-        # True if it came within 0.1 of a second
-        end = time.time()
-        diff = int(end - start)
-        self.assertEqual(diff, 6)
-
     def test_datetime(self):
         """ test_datetime
         Test 7 seconds, with a datetime object
@@ -127,6 +115,21 @@ class TestPauseFor(unittest.TestCase):
         # True if at least 7 seconds has passed
         diff = now - startDate
         self.assertEqual(diff.seconds, 7)
+
+    def test_timestamp(self):
+        """ test_timestamp
+        Test 6 seconds, with a unix timestamp
+        """
+        toTime = time.time() + 6
+        start = time.time()
+        pause.until(toTime)
+
+        # True if it came within 0.1 of a second
+        end = time.time()
+        diff = int(end - start)
+        self.assertEqual(diff, 6)
+
+
 
 if __name__ == '__main__':
     unittest.main()
