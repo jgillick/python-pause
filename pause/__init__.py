@@ -40,13 +40,11 @@ def until(time):
     'time' is either a valid datetime object or unix timestamp in seconds (i.e. seconds since Unix epoch)
     """
     end = time
-    useDateTime = False
 
-    # Convert datetime to unix timestamp and adjust now
+    # Convert datetime to unix timestamp and adjust to match time.time()
     if type(time) is datetime:
-        # calculate non aware timestamp
-        end = (time - datetime(1970, 1, 1)).total_seconds()
-        useDateTime = True
+        zoneDiff = pytime.time() - (datetime.now()- datetime(1970, 1, 1)).total_seconds()
+        end = (time - datetime(1970, 1, 1)).total_seconds() + zoneDiff
 
     # Type check
     if type(end) not in [int, float]:
@@ -55,7 +53,7 @@ def until(time):
     # Now we wait
     while True:
         # If given datetime we need to account for timezone
-        now = (datetime.now() - datetime(1970, 1, 1)).total_seconds() if useDateTime else pytime.time()
+        now = pytime.time()
         diff = end - now
 
         #
