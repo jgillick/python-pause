@@ -41,7 +41,7 @@ def until(time):
     """
     end = time
 
-    # Convert datetime to timestamp and adjust for locality
+    # Convert datetime to unix timestamp and adjust for locality
     if type(time) is datetime:
         zoneDiff = pytime.time() - (datetime.now()- datetime(1970, 1, 1)).total_seconds()
         end = (time - datetime(1970, 1, 1)).total_seconds() + zoneDiff
