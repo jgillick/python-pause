@@ -51,8 +51,6 @@ class TestPauseFor(unittest.TestCase):
         valid = (target <= 0.1)
         self.assertTrue(valid)
 
-
-
     def test_seconds(self):
         """ test_seconds
         Test 5 second delay
@@ -108,7 +106,6 @@ class TestPauseFor(unittest.TestCase):
         """
         startDate = datetime.now()
         toDate = startDate + timedelta(seconds=7)
-
         pause.until(toDate)
         now = datetime.now()
 
