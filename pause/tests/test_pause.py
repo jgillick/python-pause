@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 #
-# Runs tests against the LendingClub.com using your username and password.
-#
 
 import sys
 import math
@@ -18,6 +16,22 @@ class TestPauseFor(unittest.TestCase):
 
     def setUp(self):
         pass
+
+    def test_milliseconds(self):
+        """ test_milliseconds
+        Test 500 millisecond delay
+        """
+        start = time.time()
+        pause.milliseconds(500)
+        end = time.time()
+        diff = end - start
+        target = abs(diff - 0.5)
+
+        #
+        # True if it's within 0.1 of the target time
+        #
+        valid = (target <= 0.1)
+        self.assertTrue(valid)
 
     def test_past(self):
         """ test_past
@@ -36,22 +50,7 @@ class TestPauseFor(unittest.TestCase):
         end = time.time()
         self.assertEqual(int(end - start), 0)
 
-    def test_milliseconds(self):
-        """ test_milliseconds
-        Test 500 millisecond delay
-        """
-        start = time.time()
-        pause.milliseconds(500)
-        end = time.time()
-        diff = end - start
-        target = abs(diff - 0.5)
 
-        #
-        # True if it's within 0.1 of the target time
-        #
-        print 'Milliseconds came within {0} seconds of 0.5'.format(target)
-        valid = (target <= 0.1)
-        self.assertTrue(valid)
 
     def test_seconds(self):
         """ test_seconds
@@ -102,19 +101,6 @@ class TestPauseFor(unittest.TestCase):
         diff = int(end - now)
         self.assertEqual(diff, 2)
 
-    def test_datetime(self):
-        """ test_datetime
-        Test 7 seconds, with a datetime object
-        """
-        startDate = datetime.now()
-        toDate = startDate + timedelta(seconds=7)
-        pause.until(toDate)
-        now = datetime.now()
-
-        # True if at least 7 seconds has past
-        diff = now - startDate
-        self.assertEqual(diff.seconds, 7)
-
     def test_timestamp(self):
         """ test_timestamp
         Test 6 seconds, with a unix timestamp
@@ -127,6 +113,20 @@ class TestPauseFor(unittest.TestCase):
         end = time.time()
         diff = int(end - start)
         self.assertEqual(diff, 6)
+
+    def test_datetime(self):
+        """ test_datetime
+        Test 7 seconds, with a datetime object
+        """
+        startDate = datetime.now()
+        toDate = startDate + timedelta(seconds=7)
+
+        pause.until(toDate)
+        now = datetime.now()
+
+        # True if at least 7 seconds has passed
+        diff = now - startDate
+        self.assertEqual(diff.seconds, 7)
 
 if __name__ == '__main__':
     unittest.main()
