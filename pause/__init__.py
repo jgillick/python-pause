@@ -41,9 +41,10 @@ def until(time):
     """
     end = time
 
-    # Convert datetime to unix timestamp
+    # Convert datetime to unix timestamp and adjust for locality
     if type(time) is datetime:
-        end = float(time.strftime('%s.%f'))
+        zoneDiff = pytime.time() - (datetime.now()- datetime(1970, 1, 1)).total_seconds()
+        end = (time - datetime(1970, 1, 1)).total_seconds() + zoneDiff
 
     # Type check
     if type(end) not in [int, float]:

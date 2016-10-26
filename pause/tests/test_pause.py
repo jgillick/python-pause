@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 #
-# Runs tests against the LendingClub.com using your username and password.
-#
 
 import sys
 import math
@@ -11,7 +9,7 @@ from datetime import timedelta
 import time
 
 sys.path.insert(0, '..')
-import pause
+import __init__ as pause
 
 class TestPauseFor(unittest.TestCase):
     """ Test the delay function of PauseFor """
@@ -111,7 +109,7 @@ class TestPauseFor(unittest.TestCase):
         pause.until(toDate)
         now = datetime.now()
 
-        # True if at least 7 seconds has past
+        # True if at least 7 seconds has passed
         diff = now - startDate
         self.assertEqual(diff.seconds, 7)
 
