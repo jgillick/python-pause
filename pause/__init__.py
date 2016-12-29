@@ -42,12 +42,12 @@ def until(time):
     end = time
 
     # Convert datetime to unix timestamp and adjust for locality
-    if type(time) is datetime:
+    if isinstance(time, datetime):
         zoneDiff = pytime.time() - (datetime.now()- datetime(1970, 1, 1)).total_seconds()
         end = (time - datetime(1970, 1, 1)).total_seconds() + zoneDiff
 
     # Type check
-    if type(end) not in [int, float]:
+    if not isinstance(end, (int, float)):
         raise Exception('The time parameter is not a number or datetime object')
 
     # Now we wait
