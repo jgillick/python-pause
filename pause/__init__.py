@@ -33,6 +33,10 @@ from datetime import datetime
 import time as pytime
 from time import sleep
 
+epoch = datetime.fromtimestamp(0)
+
+def since_epoch(dt):
+    return (dt - epoch).total_seconds()
 
 def until(time):
     """
@@ -41,20 +45,19 @@ def until(time):
     """
     end = time
 
-    # Convert datetime to unix timestamp and adjust for locality
-    if isinstance(time, datetime):
-        zoneDiff = pytime.time() - (datetime.now()- datetime(1970, 1, 1)).total_seconds()
-        end = (time - datetime(1970, 1, 1)).total_seconds() + zoneDiff
+    # Convert datetime to unix timestamp
+    if type(time) is datetime:
+        end = since_epoch(time)
 
     # Type check
-    if not isinstance(end, (int, float)):
+    if type(end) not in [int, float]:
         raise Exception('The time parameter is not a number or datetime object')
 
     # Now we wait
     while True:
         now = pytime.time()
         diff = end - now
-
+        print(end,now)
         #
         # Time is up!
         #
