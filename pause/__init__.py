@@ -60,26 +60,8 @@ def until(time):
         #
         if diff <= 0:
             break
-
-        #
-        # Let's try to tune the precision, as we get closer to the end time
-        #
-
-        # Sleep by 0.001, when we're within 0.1 seconds
-        if diff <= 0.1:
-            sleep(0.001)
-
-        # Sleep by 0.01, when we're within 0.5 seconds
-        elif diff <= 0.5:
-            sleep(0.01)
-
-        # Sleep by 0.1, when we're within 1.5 seconds
-        elif diff <= 1.5:
-            sleep(0.1)
-
-        # Otherwise sleep by 1 second
         else:
-            sleep(1)
+            sleep(diff.total_seconds() / 2)
 
 
 def milliseconds(num):
