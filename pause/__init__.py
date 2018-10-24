@@ -61,7 +61,7 @@ def until(time):
         if diff <= 0:
             break
         else:
-            sleep(diff.total_seconds() / 2)
+            sleep(diff / 2)
 
 
 def milliseconds(num):
