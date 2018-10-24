@@ -61,6 +61,7 @@ def until(time):
         if diff <= 0:
             break
         else:
+            # 'logarithmic' sleeping to minimize loop iterations
             sleep(diff / 2)
 
 
