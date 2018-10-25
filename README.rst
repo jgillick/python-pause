@@ -17,7 +17,7 @@ Precision
 
 The precision *should* be within 0.001 of a second, however, this will depend on how precise your system sleep is and other performance factors.
 
-This module checks the time at various intervals depending on how much time is left on the pause. If there is at least 1.5 seconds left, it will check every second. When the timer gets down to 0.1 seconds, the time will be checked every 0.001 second.
+This module computes the pause duration between now and the future date, and then sleeps for half of this duration. After this time, it recomputes the new pause duration, repeating this process until the desired time is reached.
 
 Install
 -------
