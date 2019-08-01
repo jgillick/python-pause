@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 #
+from __future__ import print_function
 
 import sys
 import math
@@ -47,7 +48,7 @@ class TestPauseFor(unittest.TestCase):
         #
         # True if it's within 0.1 of the target time
         #
-        print 'Milliseconds came within {0} seconds of 0.5'.format(target)
+        print('Milliseconds came within {0} seconds of 0.5'.format(target))
         valid = (target <= 0.1)
         self.assertTrue(valid)
 
