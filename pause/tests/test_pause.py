@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 #
+from __future__ import print_function
 
 import sys
 import math
@@ -47,7 +48,7 @@ class TestPauseFor(unittest.TestCase):
         #
         # True if it's within 0.1 of the target time
         #
-        print 'Milliseconds came within {0} seconds of 0.5'.format(target)
+        print('Milliseconds came within {0} seconds of 0.5'.format(target))
         valid = (target <= 0.1)
         self.assertTrue(valid)
 
@@ -112,6 +113,22 @@ class TestPauseFor(unittest.TestCase):
         # True if at least 7 seconds has passed
         diff = now - startDate
         self.assertEqual(diff.seconds, 7)
+
+    def test_timezone(self):
+        """ test_datetime
+        Test 7 seconds, with a datetime object
+        """
+        if sys.version_info[0] >= 3:
+            from datetime import timezone
+			# Apply a timezone offset, Line Islands Time for fun
+            startDate = datetime.now(timezone(timedelta(hours=14), 'LINT'))
+            toDate = startDate + timedelta(seconds=7)
+            pause.until(toDate)
+            now = datetime.now(timezone.utc)
+
+            # True if at least 7 seconds has passed
+            diff = now - startDate
+            self.assertEqual(diff.seconds, 7)
 
     def test_timestamp(self):
         """ test_timestamp
