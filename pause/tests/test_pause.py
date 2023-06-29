@@ -3,7 +3,6 @@
 from __future__ import print_function
 
 import sys
-import math
 import unittest
 from datetime import datetime
 from datetime import timedelta
@@ -15,10 +14,10 @@ import __init__ as pause
 class TestPauseFor(unittest.TestCase):
     """ Test the delay function of PauseFor """
 
-    def setUp(self):
+    def setUp(self) -> None:
         pass
 
-    def test_past(self):
+    def test_past(self) -> None:
         """ test_past
         Test a time that has already passed
         """
@@ -35,7 +34,7 @@ class TestPauseFor(unittest.TestCase):
         end = time.time()
         self.assertEqual(int(end - start), 0)
 
-    def test_milliseconds(self):
+    def test_milliseconds(self) -> None:
         """ test_milliseconds
         Test 500 millisecond delay
         """
@@ -52,7 +51,7 @@ class TestPauseFor(unittest.TestCase):
         valid = (target <= 0.1)
         self.assertTrue(valid)
 
-    def test_seconds(self):
+    def test_seconds(self) -> None:
         """ test_seconds
         Test 5 second delay
         """
@@ -64,7 +63,7 @@ class TestPauseFor(unittest.TestCase):
         diff = int(end - now)
         self.assertEqual(diff, 5)
 
-    def test_time(self):
+    def test_time(self) -> None:
         """ test_time
         Test 5 second delay
         """
@@ -76,7 +75,7 @@ class TestPauseFor(unittest.TestCase):
         diff = int(end - now)
         self.assertEqual(diff, 5)
 
-    def test_minutes(self):
+    def test_minutes(self) -> None:
         """ test_minutes
         Test 1 minute delay
         """
@@ -88,7 +87,7 @@ class TestPauseFor(unittest.TestCase):
         diff = int((end - now) / 60)
         self.assertEqual(diff, 1)
 
-    def test_weeks(self):
+    def test_weeks(self) -> None:
         """ test_weeks
         Use weeks to pause for 2 seconds.
         This should effectively test days() and hours(), since the weeks() goes through both of those functions.
@@ -101,7 +100,7 @@ class TestPauseFor(unittest.TestCase):
         diff = int(end - now)
         self.assertEqual(diff, 2)
 
-    def test_datetime(self):
+    def test_datetime(self) -> None:
         """ test_datetime
         Test 7 seconds, with a datetime object
         """
@@ -114,7 +113,7 @@ class TestPauseFor(unittest.TestCase):
         diff = now - startDate
         self.assertEqual(diff.seconds, 7)
 
-    def test_timezone(self):
+    def test_timezone(self) -> None:
         """ test_datetime
         Test 7 seconds, with a datetime object
         """
@@ -130,7 +129,7 @@ class TestPauseFor(unittest.TestCase):
             diff = now - startDate
             self.assertEqual(diff.seconds, 7)
 
-    def test_timestamp(self):
+    def test_timestamp(self) -> None:
         """ test_timestamp
         Test 6 seconds, with a unix timestamp
         """
