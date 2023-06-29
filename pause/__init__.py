@@ -36,7 +36,7 @@ from time import sleep
 if sys.version_info[0] >= 3:
             from datetime import timezone
 
-def until(time):
+def until(time: datetime | float):
     """
     Pause your program until a specific end time.
     'time' is either a valid datetime object or unix timestamp in seconds (i.e. seconds since Unix epoch)
@@ -71,14 +71,14 @@ def until(time):
             sleep(diff / 2)
 
 
-def milliseconds(num):
+def milliseconds(num: float):
     """
     Pause for this many milliseconds
     """
     seconds(num / 1000.0)
 
 
-def seconds(num):
+def seconds(num: float):
     """
     Pause for this many seconds
     """
@@ -87,35 +87,35 @@ def seconds(num):
     until(end)
 
 
-def time(num):
+def time(num: float):
     """
     Same as PauseFor.seconds()
     """
     seconds(num)
 
 
-def minutes(num):
+def minutes(num: float):
     """
     Pause for this many minutes
     """
     seconds(60 * num)
 
 
-def hours(num):
+def hours(num: float):
     """
     Pause for this many hours
     """
     minutes(60 * num)
 
 
-def days(num):
+def days(num: float):
     """
     Pause for this many days
     """
     hours(24 * num)
 
 
-def weeks(num):
+def weeks(num: float):
     """
     Pause for this many weeks
     """

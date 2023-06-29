@@ -7,6 +7,7 @@ setup(
     author='Jeremy Gillick',
     author_email='none@none.com',
     packages=['pause', 'pause.tests'],
+    data_files=[('pause', ['__init__.pyi'])],
     url='https://github.com/jgillick/python-pause',
     description='A timestamp-based sleep function for Python.',
     long_description=open('README.rst').read(),
